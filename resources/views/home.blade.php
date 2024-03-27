@@ -17,9 +17,8 @@
             <div class="w-full">
                 <div class="grid grid-cols-3 gap-10 w-full">
                     @foreach ($featuredPost as $post)
-                        <div class="md:col-span-1 col-span-3">
-                            <x-posts.post-card :post="$post" /> {{-- We send the propertie post to the component --}}
-                        </div>
+                    <x-posts.post-card :post="$post" class="md:col-span-1 col-span-3" /> {{-- We send the propertie post
+                    to the component --}}
                     @endforeach
                 </div>
             </div>
@@ -33,14 +32,13 @@
         <div class="w-full mb-5">
             <div class="grid grid-cols-3 gap-10 w-full">
                 @foreach ($latestPost as $post)
-                    <div class="md:col-span-1 col-span-3">
-                        <x-posts.post-card :post="$post" /> {{-- We send the propertie post to the component --}}
-                    </div>
+                <div class="md:col-span-1 col-span-3">
+                    <x-posts.post-card :post="$post" /> {{-- We send the propertie post to the component --}}
+                </div>
                 @endforeach
             </div>
         </div>
-        <a class="mt-10 block text-center text-lg text-yellow-500 font-semibold"
-            href="http://127.0.0.1:8000/blog">More
+        <a class="mt-10 block text-center text-lg text-yellow-500 font-semibold" href="http://127.0.0.1:8000/blog">More
             Posts</a>
     </div>
 </x-app-layout>

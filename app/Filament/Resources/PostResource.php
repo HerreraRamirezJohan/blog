@@ -51,7 +51,7 @@ class PostResource extends Resource
                 )->columns(2),
                 Section::make('Meta')->schema(
                     [
-                        FileUpload::make('image')->image()->directory('posts/thumbnails'),
+                        FileUpload::make('image')->image()->directory('posts/thumbnails')->required(),
                         DateTimePicker::make('published_at')->nullable(),
                         Checkbox::make('featured'),
                         Select::make('author')

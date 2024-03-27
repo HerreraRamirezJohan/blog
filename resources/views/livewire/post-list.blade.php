@@ -2,9 +2,20 @@
 <div class=" px-3 lg:px-7 py-6">
     <div class="flex justify-between items-center border-b border-gray-100">
         {{-- Know what the user search --}}
-        <div class="text-gray-800">
+        <div class="text-gray-800 ">
+            @if ($this->activeCategory || $search)
+                <button class="gray-500 text-xs mr-3" wire:click="clearFilters()">X</button>
+            @endif
+            @if ($this->activeCategory)
+            Filter by:
+            <x-badge wire:navigate href="{{ route('posts.index', ['category'=>$this->activeCategory->slug]) }}"
+                :bgColor="$this->activeCategory->bg_color"
+                :textColor="$this->activeCategory->text_color">
+                {{$this->activeCategory->slug}}
+            </x-badge>
+            @endif
             @if ($search)
-                Searching:  {{$search}}
+                Containing:  {{$search}}
             @endif
         </div>
         <div class="flex items-center space-x-4 font-light ">
