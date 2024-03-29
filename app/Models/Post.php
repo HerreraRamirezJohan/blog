@@ -47,6 +47,9 @@ class Post extends Model
     public function categories(){// You change the name to categories and remove the relations in belong
         return $this->belongsToMany(Category::class);
     }
+    public function likes(){
+        return $this->belongsToMany(User::class, 'post_like')->withTimestamps();
+    }
 
     //Business rules
     public function getExcerptBody(){

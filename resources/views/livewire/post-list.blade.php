@@ -15,7 +15,7 @@
             </x-badge>
             @endif
             @if ($search)
-                Containing:  {{$search}}
+                Containing: <strong>{{$search}}</strong>
             @endif
         </div>
         <div class="flex items-center space-x-4 font-light ">
