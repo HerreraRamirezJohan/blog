@@ -42,7 +42,7 @@ class Post extends Model
     }
     //Relations
     public function author(){
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id')->select('id', 'name', 'profile_photo_path');
     }
     public function categories(){// You change the name to categories and remove the relations in belong
         return $this->belongsToMany(Category::class);
