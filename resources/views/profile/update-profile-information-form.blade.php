@@ -52,6 +52,11 @@
             </div>
         @endif
 
+        <!-- Role -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="role" value="{{__('Role')}}"/>
+            <p class="uppercase">{{$state['role']}}</p>
+        </div>
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="name" value="{{ __('Name') }}" />
