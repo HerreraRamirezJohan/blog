@@ -20,15 +20,20 @@ class PostList extends Component
     public $search = '';
     #[Url()]//Receive this parameter for url
     public $category = '';
+    #[Url()]//Receive this parameter for url
+    public $popular = false;
 
     #[Computed()]
     public function posts(){
         return Post::published()
-                    ->orderBy('published_at', $this->sort)
                     ->when($this->activeCategory, function ($query){
                         $query->category($this->category);
                     })
+                    ->when($this->popular, function($query){
+                        $query->popular();
+                    })
                     ->where('title', 'like', "%$this->search%")
+                    ->orderBy('published_at', $this->sort)
                     ->paginate(3);//Show number of page
         return Post::published()->orderBy('published_at', $this->sort)->simplePaginate(3);//Onli show next&back buttons
     }

@@ -35,6 +35,10 @@ class Post extends Model
     public function scopeFeatured($query){
         $query->where('featured', true);
     }
+    public function scopePopular($query){
+        $query->withCount('likes')
+            ->orderBy("likes_count", "desc");
+    }
     public function scopeCategory($query, string $category){
         $query->whereHas('categories', function($query) use ($category){
             $query->where('slug', $category);
